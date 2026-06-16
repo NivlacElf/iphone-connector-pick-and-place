@@ -1,0 +1,5 @@
+image 107mm - pixel 522x
+image 108mm - pixel 438 x
+image 109mm - pixel 354 x
+image 110mm  - pixel 270 x
+1mm is to 84 pixels

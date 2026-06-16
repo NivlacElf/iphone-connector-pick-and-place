@@ -1,0 +1,7 @@
+# data.yaml
+path: ../pin_dataset
+train: images
+val: images
+
+names:
+  0: pin

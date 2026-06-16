@@ -1,0 +1,7 @@
+put the pin under the microscope. (move to above microscope (201, 194, 250))
+center it (3x for considentcy) and take coords of centered.
+find socket coords: (go to -3, 108, 108 first ), center it 3x and take centered  socket coords
+remember, offset of camera to dongle is -78.168. use that to calculate where the VP needs to move to.
+calculate where to move the 3d printer based off where the pin coords and the true socket coords are (using offset of 78)
+move 3d printer there. 
+in all of the movements move up, then x and y to make sure the 3d printer doesnt hit any apparatus.

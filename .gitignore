@@ -1,0 +1,24 @@
+# OS / editor junk
+.DS_Store
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# ML data & artifacts (too large / binary for git)
+*.jpg
+*.jpeg
+*.png
+*.zip
+*.pt
+*.pth
+*.onnx
+
+# Datasets & training labels
+Datasets/
+**/labels/
+**/dataset/
+**/*output/
