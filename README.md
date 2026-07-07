@@ -28,7 +28,7 @@ Every alignment uses the same closed-loop pattern: detect the target, convert it
 ![Pipeline phases](docs/media/pipeline.jpg)
 
 1. **Find the plug** — the downward camera servos over the plug, then applies the calibrated camera-to-picker offset so the picker lands exactly on the grab point.
-2. **Pick up** — the toolhead descends and grabs the plug.
+2. **Pick up** — the toolhead descends and the pneumatic vacuum gripper grabs the plug.
 3. **Square the plug** — the plug is pressed against a straight edge to zero out its rotation.
 4. **Inspect from below** — the machine holds the plug over the upward microscope, verifies the squaring worked (angle check), and measures precisely where the plug sits on the picker. This shift is carried into the final math, so a slightly off-center grab still ends in a perfect insertion.
 5. **Find the socket** — the downward camera servos over the board socket on the phone.
@@ -43,11 +43,15 @@ Every alignment uses the same closed-loop pattern: detect the target, convert it
 ![Phone holder](docs/media/phone_holder.jpg)
 
 - Creality Ender 3 3D printer (motion platform, stock firmware, G-code over serial)
-- Custom 3D-printed toolhead attachment with plug picker
-- Custom 3D-printed phone case holder to fixture the iPhone
+- [Pneumatic vacuum gripper for electronics (McMaster-Carr 5083N126)](https://www.mcmaster.com/5083N126/) to pick up the plug
+- Custom 3D-printed toolhead camera/gripper mount
+- Custom 3D-printed camera base mount
+- Custom 3D-printed iPhone holder to fixture the phone
 - Downward-facing toolhead camera (1600×1200)
 - Upward-facing USB microscope
 - Straight-edge fixture for squaring the plug
+
+All custom parts were designed in CAD — STEP files are in [`cad/`](cad/), ready to print.
 
 ## Machine Learning
 
@@ -66,6 +70,7 @@ Oriented bounding boxes (rather than axis-aligned ones) matter here: the plug's 
 │   ├── Calibrate.py      #   Offset calibration helpers
 │   ├── CenterPin.py, CenterSocket.py, goTo.py, debug tools
 │   └── models/           #   Trained YOLOv8 weights (not in git — see Models below)
+├── cad/                  # STEP files for the 3D-printed mounts and iPhone holder
 ├── calibration/          # Camera px→mm, pin, and table calibration scripts
 ├── training/             # Dataset capture (grid sweeps), labeling, earlier training iterations
 ├── scripts/              # Shared utilities (CSV→YOLO conversion, camera capture, jogging)
