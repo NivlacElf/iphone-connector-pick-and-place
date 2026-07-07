@@ -11,14 +11,22 @@ __pycache__/
 # ML data & artifacts (too large / binary for git)
 *.jpg
 *.jpeg
-*.png
 *.zip
 *.pt
 *.pth
 *.onnx
+*.mov
+*.mp4
+
+# README images are allowed
+!docs/media/*.png
+!docs/media/*.jpg
 
 # Datasets & training labels
-Datasets/
+datasets/
 **/labels/
 **/dataset/
 **/*output/
+
+# Local only
+_trash/

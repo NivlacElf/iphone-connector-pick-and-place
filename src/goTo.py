@@ -3,7 +3,7 @@ import time  # Imported to add a brief pause for camera focus/vibration
 import py3DCal as p3d
 
 # --- 1. Connect to Printer ---
-ender3 = p3d.Ender3("/dev/tty.usbserial-1120")
+ender3 = p3d.Ender3("/dev/tty.usbserial-1130")
 ender3.connect()
 ender3.initialize(xy_only=False)
 
