@@ -1,8 +1,8 @@
 # Autonomous iPhone Connector Pick-and-Place
 
-A machine that picks up an Apple iPhone flex-cable plug and inserts it into its board socket — fully autonomously — built from a modified Ender 3 3D printer, two cameras, and three custom-trained YOLOv8 vision models.
+A machine that picks up an Apple iPhone flex-cable plug and inserts it into its board socket. It's built from a modified Ender 3 3D printer, two cameras, and three custom-trained YOLOv8 vision models.
 
-Connector mating is one of the last steps in phone assembly still done by human hands: the plug is a few millimeters wide and the socket tolerance is fractions of a millimeter. This project closes that gap with closed-loop visual servoing instead of expensive precision robotics.
+Connector mating is one of the last steps in phone assembly still done by human hands: the plug is a few millimeters wide and the socket tolerance is fractions of a millimeter. This project closes that gap with visual servoing instead of expensive precision robotics.
 
 <!-- IMAGE: hero shot of the full rig (Ender 3 + toolhead + phone case holder), ~1200px wide -->
 ![Full rig](docs/media/hero.jpg)
@@ -18,9 +18,9 @@ The Ender 3 is used as a cheap, precise 3-axis CNC motion platform, driven over 
 | Toolhead camera | Looking down | Finds the plug on the table, then finds the socket on the phone |
 | Microscope | Looking up | Inspects the plug held by the picker to measure its exact offset and angle |
 
-Three YOLOv8 oriented-bounding-box models handle detection: `plug_front.pt` (plug on the table), `plug_back.pt` (pin side of the plug, viewed from below), and `SocketML.pt` (board socket).
+Three YOLOv8 oriented-bounding-box models handle detection: `plug_front.pt` (plug on the table), `plug_back.pt` (pin side of the plug, viewed from below), and `SocketML.pt` (board socket). (see google drive models foulder for the models. The file is too big for github)
 
-Every alignment uses the same closed-loop pattern: detect the target, convert its pixel offset from image center to millimeters (calibrated per Z height), move the printer, and re-detect — repeating until the error converges to near zero. No move is trusted blindly.
+Each process uses the same pattern: detect the target, convert its pixel offset from image center to millimeters (calibrated per Z height), move the printer, and re-detect — repeating until the error converges to near zero.
 
 ### The Pipeline
 
